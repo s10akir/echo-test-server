@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/twinkling-gecko/echo-test-server/pkg/handler"
+	"github.com/twinkling-gecko/echo-test-server/pkg/router"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	app.Use(middleware.Recover())
 
 	// Routes
-	app.GET("/", handler.Hello)
+	router.Init(app)
 
 	// Start server
 	app.Logger.Fatal(app.Start(":3000"))
